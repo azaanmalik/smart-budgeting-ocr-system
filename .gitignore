@@ -1,0 +1,46 @@
+# Secrets, environment files, local runtime
+.env
+.env.*
+!.env.example
+!.env.sample
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.sample
+*.pem
+*.key
+*.p12
+*secrets*.json
+
+# Personal financial data and DB dumps
+receipts_storage/
+backend/receipts_storage/
+*.backup
+*.dump
+*.sql.gz
+*.sqlite
+*.sqlite3
+*.db
+
+# Dependencies, caches, build outputs
+node_modules/
+build/
+build-verify/
+dist/
+coverage/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+*.egg-info/
+.cache/
+.npm/
+
+# Editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
