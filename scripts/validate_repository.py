@@ -27,7 +27,7 @@ def main():
         if path.suffix == ".py":
             source = path.read_text(encoding="utf-8")
             ast.parse(source, filename=str(relative))
-            assert not re.search(r"postgresql://postgres:[^@]+@", source), f"Hardcoded credential: {relative}"
+            assert not re.search(re.escape("postgresql://" + "postgres:") + r"[^@]+@", source), f"Hardcoded credential: {relative}"
             count += 1
         if path.suffix == ".json":
             with path.open(encoding="utf-8") as stream:
