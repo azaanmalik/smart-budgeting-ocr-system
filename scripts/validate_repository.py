@@ -19,6 +19,8 @@ def main():
         if not path.is_file():
             continue
         relative = path.relative_to(ROOT)
+        if relative.parts[0] == ".git":
+            continue  # Checkout creates its own root Git metadata
         assert not (set(relative.parts) & FORBIDDEN_PARTS), f"Generated artifact committed: {relative}"
         assert path.name not in {".env", ".env.local"}, f"Secret environment file: {relative}"
         assert path.suffix.lower() not in {".backup", ".dump"}, f"Private database dump: {relative}"
